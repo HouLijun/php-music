@@ -1,0 +1,37 @@
+<?php include VIEW."admin/header.html";?>
+<?php include VIEW."admin/sidenav.html";?>
+<link rel="stylesheet" href="<?php echo CSS_PATH;?>admin/categories.css">
+<div class="panel-heading">分类管理</div>
+<div class="panel-body">
+    <div class="progress"  style="height: 3px">
+        <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 0%">
+            <span class="sr-only">45% Complete</span>
+        </div>
+    </div>
+    <table class="table table-hover">
+        <thead>
+        <tr>
+            <th>编号</th>
+            <th>名称</th>
+            <th>删除</th>
+        </tr>
+        </thead>
+        <tbody>
+        <?php foreach($cates as $k=>$v):?>
+        <tr data-id="<?php echo $v['cate_id'];?>">
+            <td><?php echo $v['cate_id'];?></td>
+            <td>
+                <input type="text" value="<?php echo $v['cate_name'];?>" class="form-control">
+            </td>
+            <td>
+                <i class="glyphicon glyphicon-remove del"></i>
+            </td>
+        </tr>
+        <?php endforeach;?>
+        </tbody>
+    </table>
+    <a class="btn btn-success add" href="javascript:void(0)">
+        <i class="glyphicon glyphicon-plus"></i>
+    </a>
+    <?php include VIEW."admin/footer.html";?>
+    <script src="<?php echo JS_PATH;?>admin/categories.js"></script>

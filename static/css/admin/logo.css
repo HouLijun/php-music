@@ -1,0 +1,22 @@
+.check_box{
+    position: relative;
+}
+.check_box .help-block{
+    position: absolute;
+    left:30px;
+    top:100%;
+}
+.code{
+    display: inline-block;
+    padding: 6px 10px;
+    cursor: pointer;
+}
+.error_info{
+    color: red;
+    padding-left:90px;
+    min-height: 20px;
+}
+.login{
+    margin-top:60px;
+    margin-bottom: 140px;
+}

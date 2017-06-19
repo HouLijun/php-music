@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="<?php echo CSS_PATH;?>index/base.css"/>
+		<link rel="stylesheet" type="text/css" href="<?php echo CSS_PATH;?>index/index.css"/>
+	</head>
+	<body>
+		<div class="container">
+			<!--标题-->
+			<div class="tit"></div>
+			<!--导航-->
+			<ul class="nav">
+				<li>
+					<a href="javascript:;" class="active allo" cate_id="0">全部</a>
+				</li>
+				<?php foreach($lists as $k => $v):?>
+				<li>
+					<a href="javascript:;" cate_id="<?php echo $v['cate_id'];?>"  class="nav_li">
+						<?php echo $v['cate_name'];?>
+					</a>
+				</li>
+				<?php endforeach;?>
+			</ul>
+			<a href="" class="all">
+				全部
+				<span>&gt;</span>
+			</a>
+			<!--主要内容-->
+			<div class="main">
+				<ul class="active">
+					<?php foreach( $musics as $k=>$v ):?>
+					<li class="main_lis" album_id="<?php echo $v['album_id'];?>">
+						<div class="top">
+							<a href="">
+								<img src="<?php echo $v['album_pic'];?>"/>
+								<div class="dis">
+									<div class="circle"></div>
+								</div>
+							</a>
+						</div>
+						<div class="bottom">
+							<a href="" class="music"><?php echo $v['album_name'];?></a>
+							<a href="" class="siger"><?php echo $v['artist_name'];?></a>
+						</div>
+					</li>
+					<?php endforeach;?>
+				</ul>
+			</div>
+			<!--侧导航-->
+			<div class="left">
+				<span></span>
+				<div class="l-btn"></div>
+			</div>
+			<div class="right">
+				<span></span>
+				<div class="r-btn"></div>
+			</div>
+			<!--下标-->
+			<ul class="lis">
+				<li class="active">
+					<div></div>
+				</li>
+				<li>
+					<div></div>
+				</li>
+				<li>
+					<div></div>
+				</li>
+			</ul>
+		</div>
+	</body>
+	<script src="<?php echo JS_PATH;?>index/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="<?php echo JS_PATH;?>index/index.js" type="text/javascript" charset="utf-8"></script>
+</html>

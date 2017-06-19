@@ -1,0 +1,25 @@
+@charset "UTF-8";
+/*去掉标签的默认样式*/
+body, h1, h2, h3, h4, h5, h6, p, pre, ol, ul, li, form, input, textarea, dl, dt, dd, select, option, textarea,td,tr,th,table {
+  margin: 0;
+  padding: 0; }
+
+ul, ol, li {
+  list-style: none; }
+
+a {
+  text-decoration: none;
+  color:#9a9a9a; }
+
+body {
+  font-size: 16px; }
+
+* {
+  font-family: "苹方",Tahoma,Arial,"微软雅黑",sans-serif;
+  box-sizing: border-box; }
+
+input, select, img ,textarea{
+  border: none; }
+
+input ,textarea{
+  outline: none; }

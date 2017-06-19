@@ -1,0 +1,57 @@
+//面向对象的事件：鼠标点下后鼠标移动,对象随着鼠标移动,鼠标放开后,删除移动事件
+//传进去一个jQuery对象
+//播放盒子
+var song = $(".song");
+function DragBar(obj){
+	this.obj=obj;
+	this.parent=obj.parent();
+	//保存离事件源的距离
+	this.ox=0;
+	//保存离父元素的距离
+	this.cx=0;
+	this.left=0;
+	//获取对象的宽
+	this.ow=this.obj.height();
+	//获取父元素的宽
+	this.cw=this.parent.height();
+	//获取父元素距离屏幕的位置
+	this.px=this.parent.offset().top;
+	//获取兄弟节点
+	this.sibling=this.obj.prev();
+}
+DragBar.prototype={
+	//拖动事件
+	drag:function(){
+		this.down();
+	},
+	//鼠标点下事件
+	down:function(){
+		this.obj.mousedown((function(e){
+			this.ox=e.offsetY;
+			this.move();
+			this.up();
+		}).bind(this))
+	},
+	//移动事件
+	move:function(){
+		$(document).mousemove((function(e){
+			e.preventDefault();
+			this.cx=e.pageY;
+			this.left=this.cx-this.ox-this.px;
+			if(this.left<=0){
+				this.left=0;
+			}else if(this.left>=this.cw-this.ow){
+				this.left=this.cw-this.ow;
+			}
+			var songTop = this.left/this.cw * song.height();
+			this.sibling.css("top",-songTop);
+			this.obj.css("top",this.left);
+		}).bind(this))
+	},
+	//鼠标抬起事件
+	up:function(){
+		$(document).mouseup((function(){
+			$(document).off("mousemove");
+		}).bind(this))
+	}
+}

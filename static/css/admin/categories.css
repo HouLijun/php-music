@@ -1,0 +1,159 @@
+
+/*分类*/
+.panel-body{
+    min-height: 440px;
+}
+.del{
+    color:red;
+    cursor: pointer;
+}
+.add{
+    width:400px;
+    display: block;
+    margin: 0 auto;
+}
+/*歌手*/
+.btn-del .del{
+    color: #fff;
+}
+.file{
+    display: none!important;
+}
+.addBtn{
+    font-size: 20px;
+    cursor: pointer;
+    display: block;
+}
+.addavatar{
+    font-size: 18px;
+    width: 100%;
+    height:172px;
+    line-height: 172px;
+    cursor: pointer;
+    display:block;
+    margin:0;
+}
+.avatar{
+    width: 100%!important;
+    height: 172px!important;
+}
+.caption{
+    padding: 0 4px!important;
+}
+.imgbox{
+    position: relative;
+}
+.imgbox .addavatar{
+    position: absolute;
+    left:0;
+    top:0;
+    opacity: 0.8;
+    display: none;
+    background: rgba(0,0,0,0.7);
+    color: #fff;
+}
+.imgbox:hover .addavatar{
+    display: block;
+}
+/*专辑*/
+.album{
+    margin: 10px 0;
+}
+.album-img-box{
+    position: relative;
+    float: left;
+}
+.addpic{
+    width: 100px;
+    height:100px;
+    display: block;
+    text-align: center;
+    line-height: 100px;
+    border-radius: 10px;
+    cursor: pointer;
+    color: #000;
+}
+.album-img-box:hover{
+    text-decoration: none;
+}
+.album_form .addpic{
+    position: absolute;
+    left:0;
+    top:0;
+    background: rgba(0,0,0,0.7);
+    color: #fff;
+    display: none;
+}
+.album-img-box:hover .addpic{
+    display: block;
+}
+.album-img{
+    width: 100px!important;
+    border-radius: 10px;
+}
+.album_dir{
+    /*font-size: 16px;*/
+}
+.album_dir dt{
+    width: 60px;
+}
+.album_dir dd{
+    margin-left:80px;
+}
+.album_dir .btn{
+    padding: 0 2px;
+}
+.artist_box{
+    position: relative;
+}
+.artist_name{
+    position: absolute;
+    top: 100%;
+    left:0;
+    color: #000;
+}
+.artist_name .a_name{
+    background: #0edade;
+    color: #fff;
+    border-radius: 4px;
+    font-size: 12px;
+    padding: 4px;
+}
+.albums.row{
+    margin: 0;
+}
+.album_con{
+    float: left;
+    margin-right: 30px;
+}
+.music_tbody{
+    height:auto;
+}
+.music_tbody::after{
+    content: '';
+    display: block;
+    clear: both;
+}
+.music_src{
+    position: relative;
+}
+.music_src .upload_music{
+    height:100%;
+    width:20%;
+    position: absolute;
+    left:70%;
+    top:0;
+    background: rgba(0,0,0,0.7);
+    color: #fff;
+    display: none;
+    text-align: center;
+    padding-top: 4px;
+}
+.music_src:hover .upload_music{
+    display: block;
+}
+@media (min-width: 768px){
+    .modal-dialog {
+        width: 800px;
+    }
+}

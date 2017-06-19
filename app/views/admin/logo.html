@@ -1,0 +1,47 @@
+    <?php include VIEW."admin/header.html";?>
+    <link rel="stylesheet" href="<?php echo CSS_PATH;?>admin/logo.css">
+    <div class="row login">
+        <div class="col-md-6 col-md-offset-3">
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    <h3 class="panel-title text-center">登录框</h3>
+                </div>
+                <div class="panel-body">
+                    <form class="form-horizontal" role="form">
+                        <div class="form-group user">
+                            <label for="inputEmail3" class="col-sm-2 control-label">用户名</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="inputEmail3" placeholder="Account" name="account" autocomplete="off">
+                            </div>
+                        </div>
+                        <div class="form-group pass">
+                            <label for="inputPassword3" class="col-sm-2 control-label">密码</label>
+                            <div class="col-sm-10">
+                                <input type="password" class="form-control" id="inputPassword3" placeholder="Password" name="password" autocomplete="off">
+                            </div>
+                        </div>
+                        <div class="form-group form-code">
+                                <label for="inputCode3" class="col-sm-2 control-label">验证码</label>
+                                <div class="col-sm-5">
+                                    <input type="text" name="check" class="form-control" id="inputCode3" autocomplete="off">
+                                </div>
+                                <span class="code"><?php echo $num;?></span>
+                        </div>
+                        <div class="form-group form-code">
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" name="remember">记住我
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <button type="submit" class="btn btn-info">登录</button>
+                            </div>
+                        </div>
+                        <p class="error_info"></p>
+                    </form>
+                    <?php include VIEW."admin/footer.html";?>
+                    <script src="<?php echo JS_PATH;?>admin/logo.js"></script>

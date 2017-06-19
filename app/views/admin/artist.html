@@ -1,0 +1,69 @@
+<?php include VIEW."admin/header.html";?>
+<?php include VIEW."admin/sidenav.html";?>
+<link rel="stylesheet" href="<?php echo CSS_PATH;?>admin/categories.css">
+<div class="panel-heading">歌手管理</div>
+<div class="panel-body">
+    <!--<form action="/music/index.php/admin/upload_file" method="post" enctype="multipart/form-data">
+        <input type="file" name="img">
+        <input type="submit" value="提交">
+    </form>-->
+    <div class="row artist">
+        <div class="progress"  style="height: 3px">
+            <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 0%">
+                <span class="sr-only">45% Complete</span>
+            </div>
+        </div>
+        <div class="col-sm-12">
+            <div class="thumbnail text-center">
+                <a href="javascript:void(0)" class="btn-success btn addBtn">
+                    <i class="glyphicon glyphicon-plus "></i>
+                </a>
+            </div>
+        </div>
+        <?php foreach($artists as $k=>$v):?>
+        <div class="col-sm-3" data-id="<?php echo $v['artist_id'];?>">
+            <div class="thumbnail">
+                <?php if(empty($v['artist_avatar'])):?>
+                <form>
+                    <label for="file<?php echo $v['artist_id'];?>" class="addavatar text-center"> 点击上传图片 </label>
+                    <input type="file" class="file" id="file<?php echo $v['artist_id'];?>" name="file">
+                </form>
+                <?php else:?>
+                <div class="imgbox">
+                    <img src="<?php echo $v['artist_avatar'];?>" class="avatar">
+                    <form>
+                        <label for="file<?php echo $v['artist_id'];?>" class="addavatar text-center"> 点击更换图片 </label>
+                        <input type="file" class="file" id="file<?php echo $v['artist_id'];?>" name="file">
+                    </form>
+                </div>
+                <?php endif;?>
+                <div class="caption">
+                    <h3 class="name">
+                        <input type="text" value="<?php echo $v['artist_name'];?>" class="form-control" field="artist_name">
+                    </h3>
+                    <p>
+                        <label class="radio-inline">
+                            <input type="radio" name="sex<?php echo $v['artist_id'];?>" id="inlineRadio1" value="1" field="artist_sex"
+                                <?php echo $v['artist_sex']==1 ? "checked" : ""?> /> 男
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="sex<?php echo $v['artist_id'];?>" id="inlineRadio2" value="2" field="artist_sex"
+                                <?php echo $v['artist_sex']==2 ? "checked" : ""?>
+                            > 女
+                        </label>
+                    </p>
+                    <p>
+                        <input type="text" value="<?php echo $v['artist_age'];?>" class="form-control" field="artist_age">
+                    </p>
+                    <p  class="text-right">
+                        <a href="javascript:void(0)" class="btn btn-danger btn-del" role="button">
+                            <i class="glyphicon glyphicon-remove del"></i>
+                        </a>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <?php endforeach;?>
+    </div>
+    <?php include VIEW."admin/footer.html";?>
+    <script src="<?php echo JS_PATH;?>admin/artist.js"></script>

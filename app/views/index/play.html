@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="<?php echo CSS_PATH;?>index/base.css"/>
+		<link rel="stylesheet" type="text/css" href="<?php echo CSS_PATH;?>index/play.css"/>
+	</head>
+	<body>
+		<div class="container">
+			<!--logo-->
+			<a href="" class="logo">
+				<img src="<?php echo IMG_PATH;?>logo.png" alt="" />
+			</a>
+			<div class="login">
+				<a href="">登录</a>
+				<a href="">设置</a>
+			</div>
+			<!--主要部分-->
+			<div class="main">
+				<!--图片-->
+				<div class="imgbox">
+					<a href="">
+						<img src=""/>
+					</a>
+					<p>歌曲名：<span class="m_name"></span></p>
+					<p>歌手名：<span class="m_artist"></span></p>
+					<p>专辑名：<span class="m_album"></span></p>
+					<div class="xinxi">
+						<div class="m_xin">
+							<p>Boss：刘志远</p>
+							<p>和声编写/和声：黄宣</p>
+							<p>录音：刘思宇/李汉群</p>
+							<p class="active">混音：袁述中</p>
+							<p>当夜晚来临</p>
+							<p>当夜晚来临22</p>
+							<p>当夜晚来临3333</p>
+						</div>
+					</div>
+				</div>
+				<!--nav-->
+				<ul class="nav">
+					<li>
+						<a href="javascript:;">
+							<i></i>
+							收藏
+						</a>
+					</li>
+					<li>
+						<a href="javascript:;">
+							<i class="add"></i>
+							添加到
+						</a>
+					</li>
+					<li>
+						<a href="javascript:;">
+							<i class="down"></i>
+							下载
+						</a>
+					</li>
+					<li>
+						<a href="javascript:;" class="nav_del">
+							<i class="del"></i>
+							删除
+						</a>
+					</li>
+					<li>
+						<a href="javascript:;" class="nav_empty">
+							<i class="empty"></i>
+							清空列表
+						</a>
+					</li>
+				</ul>
+				<!--曲库-->
+				<div class="song_box">
+					<ul class="song">
+						<li class="song_tit">
+							<div class="sele"></div>
+							<div class="id"></div>
+							<div class="name">歌曲</div>
+							<div class="singer">歌手</div>
+							<div class="time">时长</div>
+						</li>
+					</ul>
+					<div class="srcoll"></div>
+				</div>
+				<!--纯净模式-->
+				<div class="cunmode">
+					<div class="cunmode_m">
+						<div class="cunmode_s">
+							<p>Boss：刘志远</p>
+							<p>和声编写/和声：黄宣</p>
+							<p>录音：刘思宇/李汉群</p>
+							<p class="active">混音：袁述中</p>
+							<p>当夜晚来临</p>
+							<p>当夜晚来临22</p>
+							<p>当夜晚来临3333</p>
+						</div>
+					</div>
+				</div>
+				<!--控制部分-->
+				<div class="control">
+					<a href="javascript:;" class="prve"></a>
+					<a href="javascript:;" class="play"></a>
+					<a href="javascript:;" class="next"></a>
+					<div class="tiao">
+						<span class="tiao_name"></span>
+						<span class="tiao_time"></span>
+						<div id="tiao1">
+							<i></i>
+						</div>
+						<div id="tiao2"></div>
+					</div>
+					<a href="javascript:;" class="mode"></a>
+					<a href="javascript:;" class="love"></a>
+					<a href="javascript:;" class="down"></a>
+					<a href="javascript:;" class="cunj"></a>
+					<a href="javascript:;" class="vol"></a>
+					<div class="vole">
+						<div id="vole1">
+							<i></i>
+						</div>
+						<div id="vole2"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<audio src="" height=0 width="0" class="audio"></audio>
+	</body>
+	<script src="<?php echo JS_PATH;?>index/jquery.min.js"></script>
+	<script src="<?php echo JS_PATH;?>index/jquery.extend.js"></script>
+	<script src="<?php echo JS_PATH;?>index/drag.js"></script>
+	<script src="<?php echo JS_PATH;?>index/dragBar.js"></script>
+	<script src="<?php echo JS_PATH;?>index/play.js"></script>
+</html>

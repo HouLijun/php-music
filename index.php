@@ -1,0 +1,31 @@
+<?php
+	//定义文件的路径
+	define("UEK",realpath("./"));
+	//定义app路径
+	define("APP",UEK."/app/");
+	//定义控制器路径
+	define("CONT",APP."controller/");
+	//定义视图路径
+	define("VIEW",APP."views/");
+	//定义核心路径
+	define("CORE",UEK."/core/");
+	//定义公共库路径
+	define("LIB",CORE."lib/");
+	//定义css/js/img的路径
+	define("CSS_PATH","/music/static/css/");
+	define("JS_PATH","/music/static/js/");
+	define("IMG_PATH","/music/static/images/");
+	
+	//开启调试
+	define("DEBUG",true);
+	if(DEBUG)
+	{
+		ini_set("display_errors","On");
+	}else
+	{
+		ini_set("display_errors","Off");
+	}
+	include(LIB."function.php");
+	include(CORE."uek.php");
+	\core\uek::run();
+?>

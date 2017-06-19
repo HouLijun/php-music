@@ -1,0 +1,111 @@
+<?php include VIEW."admin/header.html";?>
+<?php include VIEW."admin/sidenav.html";?>
+<link rel="stylesheet" href="<?php echo CSS_PATH;?>admin/categories.css">
+<div class="panel-heading">专辑管理</div>
+<div class="panel-body">
+    <div class="row albums">
+        <div class="progress"  style="height: 3px">
+            <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 0%">
+                <span class="sr-only">45% Complete</span>
+            </div>
+        </div>
+        <button type="button" class="btn btn-primary  btn-block add_album">+</button>
+        <?php foreach($albums as $k=>$v):?>
+        <div class="col-sm-12 album" data-id="<?php echo $v['album_id'];?>">
+            <div class="media">
+                <a class="media-left album-img-box" href="javascript:void(0)">
+                    <?php if(empty($v['album_pic'])):?>
+                    <form>
+                        <label class="addpic" for="file<?php echo $v['album_id']?>">点击上传照片</label>
+                        <input type="file" class="file file_album" id="file<?php echo $v['album_id']?>" name="file">
+                    </form>
+                    <?php else:?>
+                    <img src="<?php echo $v['album_pic'];?>" alt="..." class="album-img">
+                    <form class="album_form">
+                        <label class="addpic" for="file<?php echo $v['album_id']?>">点击更换照片</label>
+                        <input type="file" class="file file_album" id="file<?php echo $v['album_id']?>" name="file">
+                    </form>
+                    <?php endif;?>
+                </a>
+                <div class="media-body album_con">
+                    <dl class="dl-horizontal album_dir">
+                        <dt>专辑名</dt>
+                        <dd>
+                            <input type="text" class="form-control input-sm change" value="<?php echo $v['album_name'];?>" field="album_name">
+                        </dd>
+                        <dt>歌手</dt>
+                        <dd class="artist_box">
+                            <input type="text" class="form-control input-sm" value="<?php echo $v['artist_name'];?>"  field="artist_name">
+                            <div class="artist_name"></div>
+                        </dd>
+                        <dt>分类</dt>
+                        <dd>
+                            <select class="form-control input-sm change"  field="cate_id">
+                                <?php foreach($cates as $c):?>
+                                <option class="input-sm" value="<?php echo $c["cate_id"]?>"
+                                <?php echo $v["cate_name"]==$c["cate_name"]?"selected":"";?>>
+                                    <?php echo $c['cate_name'];?>
+                                </option>
+                                <?php endforeach;?>
+                            </select>
+                        </dd>
+                        <dt>简介</dt>
+                        <dd></dd>
+                    </dl>
+                </div>
+                <div data-id="<?php echo $v['album_id'];?>">
+                    <!-- Button trigger modal -->
+                    <button type="button" class="btn btn-primary btn-md btn-music" data-toggle="modal" data-target="#myModal">
+                        查看歌曲
+                    </button>
+                    <?php $flag=true;foreach($hots as $i=>$h):?>
+                    <?php if($h['album_id']==$v['album_id']):?>
+                    <button type="button" class="btn btn-warning delhot" hot-id="<?php echo $h['hot_id'];?>">取消推荐</button>
+                    <?php $flag=false?>
+                    <?php endif;?>
+                    <?php if(($i+1)==count($hots)&&$flag):?>
+                    <button type="button" class="btn btn-success addhot">点击推荐</button>
+                    <?php endif;?>
+                    <?php endforeach;?>
+                    <a href="javascript:void(0)" class="btn btn-danger btn-del" role="button">
+                        <i class="glyphicon glyphicon-remove del"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <?php endforeach;?>
+        <!-- Modal -->
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true" class="m_close">&times;</span><span class="sr-only">Close</span></button>
+                        <h4 class="modal-title" id="myModalLabel">歌曲列表</h4>
+                    </div>
+                    <div class="modal-body">
+                        <table class="table table-hover">
+                            <thead>
+                            <tr>
+                                <th>编号</th>
+                                <th>名称</th>
+                                <th>歌曲</th>
+                                <th>时长</th>
+                                <th>操作</th>
+                            </tr>
+                            </thead>
+                            <tbody class="music_tbody"></tbody>
+                        </table>
+                        <a class="btn btn-success add" href="javascript:void(0)">
+                            <i class="glyphicon glyphicon-plus"></i>
+                        </a>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Save changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <?php include VIEW."admin/footer.html";?>
+    <script src="<?php echo JS_PATH;?>admin/album.js"></script>
